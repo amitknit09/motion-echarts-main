@@ -1,0 +1,46 @@
+name: "🐞 Bug 报告"
+description: 给 motion-echarts 报告 bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您花时间报告这个问题！
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 请确认
+      description: 在提交此问题前，请确认问题仅在 motion-echarts 中发生，而与 ECharts 本身无关。
+      options:
+        - label: 我可以确认这个问题无法在 ECharts 项目本身中复现。
+          required: true
+  - type: dropdown
+    id: integration
+    attributes:
+      label: 您是如何将 motion-echarts 引入项目的？
+      options:
+        - 通过 ES 模块 import
+        - "<script> 标签"
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: 版本信息
+      description: 在命令行执行 `npm ls vue echarts motion-echarts` 的输出。
+      render: sh
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 问题详情
+      description: 请清晰地描述您遇到的问题。
+    validations:
+      required: true
+  - type: input
+    id: repro
+    attributes:
+      label: 问题复现
+      description: "请提供一个精炼的问题复现（去除无关依赖的最小化可运行 demo）。如果在线环境无法复现，可以创建对应的 GitHub repo 来提供复现环境。请在下方贴入在 CodeSandbox 上 demo 的链接或 GitHub repo 链接：（[Vue 3 模板](https://codesandbox.io/s/charming-night-2y6m6?file=/src/App.vue) / [Vue 2 模板](https://codesandbox.io/s/suspicious-glitter-mk66j?file=/src/App.vue)）"
+    validations:
+      required: true
